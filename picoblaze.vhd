@@ -42,7 +42,7 @@ architecture picoblaze_arch of picoblaze is
   component control
     generic(            C_FAMILY : string := "S6";
                C_RAM_SIZE_KWORDS : integer := 1;
-            C_JTAG_LOADER_ENABLE : integer := 0);
+            C_JTAG_LOADER_ENABLE : integer := 1);
 
     port (address     : in std_logic_vector(11 downto 0);
           instruction : out std_logic_vector(17 downto 0);
@@ -129,7 +129,7 @@ begin
   program_rom: control
     generic map(             C_FAMILY => "S6",   --Family 'S6', 'V6' or '7S'
                     C_RAM_SIZE_KWORDS => 1,      --Program size '1', '2' or '4'
-                 C_JTAG_LOADER_ENABLE => 0)      --Include JTAG Loader when set to '1'
+                 C_JTAG_LOADER_ENABLE => 1)      --Include JTAG Loader when set to '1'
 
     port map(      address => address,
                instruction => instruction,
